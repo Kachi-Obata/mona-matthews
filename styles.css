@@ -15,6 +15,60 @@
             line-height: 1.7;
         }
 
+        /* Navigation bar*/
+        .main-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(247, 245, 242, 0.85);
+            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid rgba(198, 167, 94, 0.25);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo styling */
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+            color: #111;
+        }
+
+        .nav-logo img {
+            height: 55px;
+            width: auto;
+            display: block;
+            mix-blend-mode: multiply; /* Makes logo blend nicely with background. i.e removes the white background */
+        }
+
+        /*CTA styling in nav*/
+        .nav-cta {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--luxury-gold);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+            transition: border-color 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            border-color: var(--luxury-gold);
+        }
+        /* End of Navigation bar */
+
         /*Gold Accents*/
         :root {
             --luxury-gold: #C6A75E; /* soft, muted luxury gold */
@@ -44,6 +98,7 @@
             align-items: center;
             text-align: center;
             padding: 100px 20px;
+            padding-top: 140px;
         }
 
         .hero h1 {
@@ -386,4 +441,21 @@
                 font-size: 0.85rem;
             }
 
+            /* Ensuring the nav doesn't overcrowd */
+            .nav-inner {
+                padding: 14px 18px;
+            }
+
+            .nav-logo {
+                font-size: 1.1rem;
+            }
+
+            .nav-cta {
+                font-size: 0.75rem;
+            }
+
+            .nav-logo img {
+                height: 40px;
+                width: 95px;
+            }
         }
