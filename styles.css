@@ -15,6 +15,12 @@
             line-height: 1.7;
         }
 
+        /*Gold Accents*/
+        :root {
+            --luxury-gold: #C6A75E; /* soft, muted luxury gold */
+        }
+
+
         h1, h2, h3 {
             font-family: 'Playfair Display', serif;
             font-weight: 600;
@@ -71,7 +77,8 @@
 
         .btn:hover {
             background-color: transparent;
-            color: #8B5E3C;
+            color: var(--luxury-gold);
+            border-color: var(--luxury-gold)
         }
 
         .btn-secondary {
@@ -119,6 +126,15 @@
             margin-bottom: 15px;
         }
 
+        .collection h2::after{
+            content: "";
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: var(--luxury-gold);
+            margin: 20px auto 0;
+        }
+
         .collection .subtext {
             text-align: center;
             color: #555555;
@@ -140,12 +156,23 @@
             background-color: #FFFFFF;
             padding: 30px;
             border-radius: 8px;
+            border: 1.8px solid rgba(198, 167, 94, 0.35); /* subtle gold around the cards*/
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+        .product-card::before{ /*for the gold line at the top of each card*/
+            content: "";
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--luxury-gold);
+            margin-bottom: 16px;
         }
 
         .product-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            border-color: var(--luxury-gold);
         }
 
         .product-image {
