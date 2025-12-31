@@ -296,12 +296,51 @@
             overflow-x: auto;
         }
 
+        .size-toggle { /* Button to toggle between US and EU sizes */
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            background-color: rgba(198, 167, 94, 0.08);
+            padding: 18px;
+            border-radius: 8px;
+            display: inline-flex;
+        }
+
+        .size-tab {
+            background: transparent;
+            border: 1.5px solid var(--luxury-gold);
+            padding: 10px 26px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            color: #111;
+            transition: all 0.3s ease;
+        }
+
+        .size-tab:hover {
+            background-color: rgba(198, 167, 94, 0.15);
+        }
+
+        .size-tab.active {
+            background-color: var(--luxury-gold);
+            color: #fff;
+            display: table;
+        }
+
         .size-table { /*Where the actual table styling is - luxury lives here*/
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
             border-collapse: collapse;
             font-family: 'Inter', sans-serif;
+            display: none; /* Hidden by default, shown when tab is active */
+        }
+
+        .size-table.active {
+            display: table;
         }
 
         .size-table th {
