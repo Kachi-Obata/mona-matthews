@@ -208,6 +208,70 @@
             font-size: 0.95rem;
         }
 
+        /* Size Guide Section */
+        .size-guide {
+            background-color: #FFFFFF;
+            text-align: center;
+        }
+
+        .size-guide h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .size-guide h2::after{
+            content: "";
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: var(--luxury-gold);
+            margin: 20px auto 0;
+        }
+
+        .size-intro { /*new class for intro text*/
+            max-width: 620px;
+            margin: 0 auto 50px;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .size-table-wrapper {
+            overflow-x: auto;
+        }
+
+        .size-table { /*Where the actual table styling is - luxury lives here*/
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .size-table th {
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            padding: 14px;
+            border-bottom: 1.5px solid var(--luxury-gold);
+            color: #111;
+        }
+
+        .size-table td {
+            padding: 16px;
+            font-size: 0.95rem;
+            color: #555;
+            border-bottom: 1px solid #EEE;
+        }
+
+        .size-note { /* Responsible for the note below the table */
+            margin-top: 40px;
+            font-size: 0.95rem;
+            color: #777;
+        }
+        /* Main table styling ends here */
+
         /* Why Section */
         .why-section {
             background-color: #FFFFFF;
@@ -311,4 +375,15 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
+
+            /* Adjusting table size for smaller screens */
+            .size-guide h2 {
+                font-size: 2rem;
+            }
+
+            .size-table th, .size-table td {
+                padding: 12px;
+                font-size: 0.85rem;
+            }
+
         }
