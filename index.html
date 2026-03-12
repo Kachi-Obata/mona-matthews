@@ -4,21 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mona Matthews - Nigeria's Finest Shoe Designer</title>
+    <meta name="description" content="Mona Matthews is a Nigerian luxury footwear brand crafting elegant, handmade shoes in extended sizes for men and women. Established 2002.">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mona Matthews — Nigeria's Finest Shoe Designer">
+    <meta property="og:description" content="Elegantly crafted footwear — thoughtfully designed for larger sizes. Luxury handmade shoes since 2002.">
+    <meta property="og:image" content="images/mona-logo.jpeg">
+    <meta property="og:url" content="https://monamatthews.com">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mona Matthews — Nigeria's Finest Shoe Designer">
+    <meta name="twitter:description" content="Elegantly crafted footwear — thoughtfully designed for larger sizes. Luxury handmade shoes since 2002.">
+
+    <!-- Favicons — all sizes & platforms -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#F7F5F2">
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation Bar -->
     <header class="main-nav">
-  <div class="nav-inner">
+  <nav class="nav-inner" aria-label="Main navigation">
     <div class="nav-logo">
-      <img src="images/mona-logo2.jpeg" alt="Mona Matthews Logo"/>
+      <img src="images/mona-logo.jpeg" alt="Mona Matthews — Nigeria's finest shoe designer"/>
     </div>
 
     <a href="#collection" class="nav-cta">
       Explore Collection
     </a>
-  </div>
+  </nav>
 </header>
 
 
@@ -31,7 +52,7 @@
     </section>
 
     <!-- About Section -->
-    <section class="about">
+    <section class="about fade-in">
         <div class="section-inner">
             <h2>About Mona Matthews</h2>
             <p class="established">ESTABLISHED 2002</p>
@@ -43,50 +64,50 @@
     </section>
 
     <!-- Collection Section -->
-    <section class="collection" id="collection">
+    <section class="collection fade-in" id="collection">
         <h2>Our Collection</h2>
         <p class="subtext">From everyday staples to statement pieces, each design is crafted with care and precision.</p>
         
         <div class="product-grid">
             <div class="product-card">
-                <div class="product-image"><img src="images/classic leather pump - mona.png" alt="Classic Leather Pump by Mona Matthews"></div>
+                <div class="product-image"><img src="images/classic-leather-pump.webp" alt="Classic Leather Pump — lime green open-toe mule with black floral accent, handcrafted by Mona Matthews"></div>
                 <h3 class="product-name">Classic Leather Pump</h3>
                 <p class="product-desc">Timeless elegance for any occasion</p>
             </div>
             
             <div class="product-card">
-                <div class="product-image"><img src="images/artisan sandal - mona.png" alt="Artisan Sandal by Mona Matthews"></div>
+                <div class="product-image"><img src="images/artisan-sandal.webp" alt="Artisan Sandal — bronze snakeskin-textured double-strap sandal on a wooden block heel, handcrafted by Mona Matthews"></div>
                 <h3 class="product-name">Artisan Sandal</h3>
                 <p class="product-desc">Handcrafted comfort meets sophistication</p>
             </div>
             
             <div class="product-card">
-                <div class="product-image"><img src="images/evening stiletto - mona.webp" alt="Evening Stiletto by Mona Matthews"></div>
+                <div class="product-image"><img src="images/evening-stiletto.webp" alt="Evening Stiletto — glossy black patent leather pointed-toe stiletto with a nude interior, crafted by Mona Matthews"></div>
                 <h3 class="product-name">Evening Stiletto</h3>
                 <p class="product-desc">Statement elegance for special moments</p>
             </div>
             
             <div class="product-card">
-                <div class="product-image"><img src="images/Everyday loafer - mona.png" alt="Everyday Loafer by Mona Matthews"></div>
+                <div class="product-image"><img src="images/everyday-loafer.webp" alt="Everyday Loafer — black pebbled leather boat-style loafer with white sole and lace detail, crafted by Mona Matthews"></div>
                 <h3 class="product-name">Everyday Loafer</h3>
                 <p class="product-desc">Refined comfort for daily wear</p>
             </div>
             
             <div class="product-card">
-                <div class="product-image"><img src="images/ankle boot - mona.webp" alt="Ankle Boot by Mona Matthews"></div>
+                <div class="product-image"><img src="images/ankle-boot.webp" alt="Ankle Boot — sleek black leather pointed-toe ankle boot with gold bead strap accent, crafted by Mona Matthews"></div>
                 <h3 class="product-name">Ankle Boot</h3>
                 <p class="product-desc">Modern styling with classic appeal</p>
             </div>
             
             <div class="product-card">
-                <div class="product-image"><img src="images/strappy heel - mona.webp" alt="Strappy Heel by Mona Matthews"></div>
+                <div class="product-image"><img src="images/strappy-heel.webp" alt="Strappy Heel — elegant black strappy high-heeled sandal with ankle strap and gold buckle, crafted by Mona Matthews"></div>
                 <h3 class="product-name">Strappy Heel</h3>
                 <p class="product-desc">Bold design, exceptional craftsmanship</p>
             </div>
         </div>
     </section>
 
-<section class="size-guide" id="size-guide">
+<section class="size-guide fade-in" id="size-guide">
   <div class="section-inner">
     <h2>Size Guide</h2>
 
@@ -96,9 +117,9 @@
     </p>
 
     <!-- TOGGLE (VERY VISIBLE) -->
-    <div class="size-toggle">
-      <button class="size-tab active" data-target="women">Women</button>
-      <button class="size-tab" data-target="men">Men</button>
+    <div class="size-toggle" role="tablist" aria-label="Size guide gender toggle">
+      <button class="size-tab active" data-target="women" role="tab" aria-selected="true" aria-controls="size-table-women" id="tab-women">Women</button>
+      <button class="size-tab" data-target="men" role="tab" aria-selected="false" aria-controls="size-table-men" id="tab-men">Men</button>
     </div>
 
     <!-- OPTIONAL REINFORCEMENT COPY -->
@@ -109,7 +130,7 @@
     <div class="size-table-wrapper">
 
       <!-- MEN'S SIZE GUIDE (DEFAULT) -->
-      <table class="size-table size-table-men">
+      <table class="size-table size-table-men" id="size-table-men" role="tabpanel" aria-labelledby="tab-men">
         <thead>
           <tr>
             <th>UK</th>
@@ -140,7 +161,7 @@
       </table>
 
       <!-- WOMEN'S SIZE GUIDE (HIDDEN UNTIL TOGGLED) -->
-      <table class="size-table size-table-women active">
+      <table class="size-table size-table-women active" id="size-table-women" role="tabpanel" aria-labelledby="tab-women">
         <thead>
           <tr>
             <th>UK</th>
@@ -187,7 +208,7 @@
 
 
     <!-- Why Mona Matthews Section -->
-    <section class="why-section">
+    <section class="why-section fade-in">
         <h2>Why Mona Matthews</h2>
         
         <div class="features-grid">
@@ -228,14 +249,48 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials fade-in">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-quote">&ldquo;The craftsmanship is truly exceptional. I've never found shoes in my size that feel this luxurious — Mona Matthews changed that completely.&rdquo;</p>
+                <div class="testimonial-author">
+                    <p class="testimonial-name">Adaeze O.</p>
+                    <p class="testimonial-location">Lagos, Nigeria</p>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">&ldquo;Elegant, comfortable, and made with such attention to detail. These shoes make you feel seen — and incredibly stylish.&rdquo;</p>
+                <div class="testimonial-author">
+                    <p class="testimonial-name">Chidinma E.</p>
+                    <p class="testimonial-location">Abuja, Nigeria</p>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">&ldquo;I ordered the Ankle Boot and it arrived beautifully packaged. The quality speaks for itself — I'll be a repeat customer for life.&rdquo;</p>
+                <div class="testimonial-author">
+                    <p class="testimonial-name">Folake A.</p>
+                    <p class="testimonial-location">London, UK</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
-    <section class="contact">
+    <section class="contact fade-in">
         <h2>Get in Touch</h2>
         <p>For inquiries, custom orders, or collaborations, reach out using the details below.</p>
         
         <div class="contact-buttons">
-            <a href="https://wa.me/2348023055212" class="btn" target="_blank" rel="noopener">WhatsApp</a>
-            <a href="https://instagram.com/monamatthewsng" class="btn btn-secondary" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://wa.me/2348023055212" class="btn" target="_blank" rel="noopener">
+                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+            </a>
+            <a href="https://instagram.com/monamatthewsng" class="btn btn-secondary" target="_blank" rel="noopener">
+                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                Instagram
+            </a>
         </div>
     </section>
 
@@ -243,22 +298,8 @@
     <footer>
         <p>&copy; Mona Matthews &mdash; Established 2002</p>
     </footer>
-<script>
-  const tabs = document.querySelectorAll('.size-tab');
-  const tables = document.querySelectorAll('.size-table');
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tables.forEach(table => table.classList.remove('active'));
-
-      tab.classList.add('active');
-      document
-        .querySelector('.size-table-' + tab.dataset.target)
-        .classList.add('active');
-    });
-  });
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
