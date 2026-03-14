@@ -219,7 +219,8 @@ section {
 .product-card-link {
     text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex;
+    height: 100%;
 }
 
 .product-card-link:hover .product-card {
@@ -331,6 +332,9 @@ section {
     border-radius: 8px;
     border: 1.8px solid var(--gold-border-subtle);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .product-card::before {
@@ -379,6 +383,7 @@ section {
 .product-desc {
     color: var(--text-body);
     font-size: 0.95rem;
+    flex-grow: 1;
 }
 
 /* ──────────────────────────────────────
