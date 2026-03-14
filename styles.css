@@ -197,6 +197,72 @@ section {
 }
 
 /* ──────────────────────────────────────
+   Nav Links (multiple CTA links)
+   ────────────────────────────────────── */
+.nav-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.nav-cta-catalogue {
+    color: var(--brand-brown);
+    font-weight: 600;
+}
+
+.nav-cta-catalogue:hover {
+    border-color: var(--brand-brown);
+}
+
+/* ──────────────────────────────────────
+   Product Card Links
+   ────────────────────────────────────── */
+.product-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.product-card-link:hover .product-card {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    border-color: var(--luxury-gold);
+}
+
+/* ──────────────────────────────────────
+   Catalogue CTA (below Collection)
+   ────────────────────────────────────── */
+.catalogue-cta-wrapper {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 50px;
+    border-top: 1px solid var(--gold-border-subtle);
+}
+
+.catalogue-cta-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--text-body);
+    margin-bottom: 28px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
+.catalogue-cta-btn {
+    background-color: var(--luxury-gold);
+    border-color: var(--luxury-gold);
+    color: #fff;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.catalogue-cta-btn:hover {
+    background-color: transparent;
+    color: var(--luxury-gold);
+    border-color: var(--luxury-gold);
+}
+
+/* ──────────────────────────────────────
    About Section
    ────────────────────────────────────── */
 .about {

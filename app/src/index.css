@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 0%;
+    --radius: 0rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white text-black font-sans antialiased;
+    font-feature-settings: "kern" 1;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@layer components {
+  /* Chanel Logo Styling */
+  .chanel-logo {
+    @apply text-2xl font-normal tracking-chanel-logo uppercase;
+    letter-spacing: 8px;
+  }
+  
+  /* Navigation Link with Underline Animation */
+  .nav-link {
+    @apply relative text-xs uppercase tracking-chanel-wide text-black;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-px bg-black;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+  
+  /* Hero Section Text Overlay */
+  .hero-overlay {
+    @apply absolute bottom-12 left-12 text-white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .hero-category {
+    @apply text-xs uppercase tracking-chanel-wide mb-3;
+  }
+  
+  .hero-title {
+    @apply text-2xl md:text-3xl font-normal tracking-wide mb-6;
+  }
+  
+  .hero-cta {
+    @apply inline-block text-xs uppercase tracking-chanel-wide underline underline-offset-4;
+    transition: opacity 0.25s ease-out;
+  }
+  
+  .hero-cta:hover {
+    @apply opacity-70;
+  }
+  
+  /* Footer Link Styling */
+  .footer-link {
+    @apply text-xs text-white/80 hover:text-white transition-colors duration-200;
+  }
+  
+  /* Icon Button */
+  .icon-button {
+    @apply p-2 hover:opacity-70 transition-opacity duration-200;
+  }
+  
+  /* Section Container */
+  .section-full {
+    @apply relative w-full h-screen overflow-hidden;
+  }
+  
+  /* Full Background Image */
+  .bg-full {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Text balance for better typography */
+  .text-balance {
+    text-wrap: balance;
+  }
+}
