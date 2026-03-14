@@ -857,3 +857,9 @@ Let's adapt it for mona matthews content wise. Of course that includes color sty
 Also refer to 
 /app /assets, and /tech-spec.md since it's really a very close representation. I'm not saying that's exactly what we should use, you can choose to reference the code, create your own, then have me delete it later it you want. You can also have it as your code base and just edit as you want, the choice is yours. All this is just for reference material. 
 If you're not going to use the files i added in and you'll build your own files from scratch or there'll be a naming conflict, delete them or have me do it
+
+
+*NOTES*
+Chanel hamburger menu should come out as a card from the left (include and image), not a list from the top as it is now.
+Logo should have no background, perhaps consider removing the background and uploading the new logo.
+The "EXPLORE COLLECTION" AND "CATALOGUE" buttons in the nav bar are too close together on mobile, let's think of a way to fix that issue without a hamburger menu, but we'll use it if we have to"

@@ -71,23 +71,43 @@ window.addEventListener('scroll', () => {
 handleParallax();
 
 // ──────────────────────────────────────
-// Mobile Menu Toggle
+// Slide-in Mobile Menu Panel
 // ──────────────────────────────────────
 const menuToggle = document.querySelector('.cat-menu-toggle');
-const nav = document.querySelector('.cat-nav');
+const mobilePanel = document.getElementById('mobilePanel');
+const mobileOverlay = document.getElementById('mobileOverlay');
+const mobilePanelClose = document.getElementById('mobilePanelClose');
 
-if (menuToggle && nav) {
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        nav.classList.toggle('mobile-open');
-    });
+function openMobileMenu() {
+    mobilePanel.classList.add('active');
+    mobileOverlay.classList.add('active');
+    menuToggle.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
 
-    // Close menu when a nav link is clicked
-    nav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            nav.classList.remove('mobile-open');
-        });
+function closeMobileMenu() {
+    mobilePanel.classList.remove('active');
+    mobileOverlay.classList.remove('active');
+    menuToggle.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+if (menuToggle) {
+    menuToggle.addEventListener('click', openMobileMenu);
+}
+
+if (mobilePanelClose) {
+    mobilePanelClose.addEventListener('click', closeMobileMenu);
+}
+
+if (mobileOverlay) {
+    mobileOverlay.addEventListener('click', closeMobileMenu);
+}
+
+// Close menu when a nav link is clicked
+if (mobilePanel) {
+    mobilePanel.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
     });
 }
 

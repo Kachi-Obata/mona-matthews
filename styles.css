@@ -98,7 +98,6 @@ section {
     height: 55px;
     width: auto;
     display: block;
-    mix-blend-mode: multiply;
 }
 
 .nav-cta {
@@ -722,5 +721,14 @@ footer {
     .nav-logo img {
         height: 40px;
         width: 95px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-cta {
+        font-size: 0.65rem;
+        letter-spacing: 0.5px;
     }
 }
