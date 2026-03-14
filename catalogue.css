@@ -186,10 +186,7 @@ h1, h2, h3, h4 {
     color: var(--luxury-gold);
 }
 
-.cat-nav-home-link {
-    position: absolute;
-    left: 40px;
-}
+/* Home link in nav - no special positioning needed */
 
 /* ──────────────────────────────────────
    Hero Sections (Full Viewport)
