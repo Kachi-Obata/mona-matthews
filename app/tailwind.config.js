@@ -14,36 +14,13 @@ module.exports = {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive) / <alpha-value>)",
-          foreground: "hsl(var(--destructive-foreground) / <alpha-value>)",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        chanel: {
+        mm: {
           black: '#000000',
           white: '#FFFFFF',
+          gold: '#C4A77D',
           gray: {
             100: '#F5F5F5',
-            200: '#E5E5E5',
+            200: '#E8E8E8',
             300: '#D4D4D4',
             400: '#A3A3A3',
             500: '#666666',
@@ -52,26 +29,23 @@ module.exports = {
             800: '#262626',
             900: '#171717',
           },
-          beige: '#C4A77D',
         },
       },
       fontFamily: {
         sans: ['"Helvetica Neue"', 'Arial', 'sans-serif'],
+        display: ['"Playfair Display"', 'Georgia', 'serif'],
       },
       letterSpacing: {
-        'chanel': '0.5px',
-        'chanel-wide': '1.5px',
-        'chanel-logo': '8px',
+        'mm': '0.5px',
+        'mm-wide': '2px',
+        'mm-logo': '6px',
+        'mm-caps': '3px',
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-        xs: "calc(var(--radius) - 6px)",
-      },
-      boxShadow: {
-        xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
       },
       keyframes: {
         "accordion-down": {
@@ -82,10 +56,6 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "caret-blink": {
-          "0%,70%,100%": { opacity: "1" },
-          "20%,50%": { opacity: "0" },
-        },
         "underline-grow": {
           from: { transform: "scaleX(0)" },
           to: { transform: "scaleX(1)" },
@@ -94,7 +64,6 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "caret-blink": "caret-blink 1.25s ease-out infinite",
         "underline-grow": "underline-grow 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards",
       },
     },

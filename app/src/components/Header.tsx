@@ -1,123 +1,135 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Search, User, Heart, ShoppingBag } from 'lucide-react';
+import { Menu, X, Instagram } from 'lucide-react';
 import { slideInFromLeft, ANIMATION } from '@/lib/animations';
 
-const navItems = [
-  { label: 'Haute Couture', href: '#haute-couture', exclusive: true },
-  { label: 'Fashion', href: '#fashion', exclusive: true },
-  { label: 'High Jewelry', href: '#high-jewelry', exclusive: true },
-  { label: 'Fine Jewelry', href: '#fine-jewelry', exclusive: true },
-  { label: 'Watches', href: '#watches', exclusive: true },
-  { label: 'Eyewear', href: '#eyewear', exclusive: false },
-  { label: 'Fragrance', href: '#fragrance', exclusive: false },
-  { label: 'Makeup', href: '#makeup', exclusive: false },
-  { label: 'Skincare', href: '#skincare', exclusive: false },
+const WhatsAppIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+  </svg>
+);
+
+const navLeft = [
+  { label: 'Collection', href: '/' },
+  { label: 'Catalogue', href: '/catalogue' },
 ];
+
+const navRight = [
+  { label: 'About', href: '/about' },
+  { label: 'Size Guide', href: '/size-guide' },
+];
+
+const allNavItems = [...navLeft, ...navRight];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const isLanding = location.pathname === '/';
+  const transparent = isLanding && !isScrolled;
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 60);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
+    setIsScrolled(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
   }, [isMobileMenuOpen]);
+
+  const textColor = transparent ? 'text-white' : 'text-black';
+  const linkClass = transparent ? 'nav-link-white' : 'nav-link';
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm' : 'bg-white'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          transparent
+            ? 'bg-transparent'
+            : 'bg-white/95 backdrop-blur-sm border-b border-mm-gray-200'
         }`}
       >
-        <div className="flex items-center justify-between h-[60px] px-4 md:px-6 lg:px-8">
-          {/* Left - Menu Button (Mobile) / Navigation (Desktop) */}
-          <div className="flex items-center flex-1">
+        <div className="flex items-center justify-between h-[60px] px-4 md:px-8 lg:px-10">
+
+          {/* Left — hamburger (mobile) / nav (desktop) */}
+          <div className="flex items-center gap-6 flex-1">
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="lg:hidden p-2 -ml-2 hover:opacity-70 transition-opacity"
+              className={`lg:hidden p-2 -ml-2 hover:opacity-60 transition-opacity ${textColor}`}
               aria-label="Open menu"
             >
               <Menu className="w-5 h-5" strokeWidth={1.5} />
             </button>
-            
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-6">
-              {navItems.slice(0, 6).map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="nav-link flex items-center gap-1"
-                >
+
+            <nav className="hidden lg:flex items-center gap-7">
+              {navLeft.map((item) => (
+                <Link key={item.label} to={item.href} className={linkClass}>
                   {item.label}
-                  {item.exclusive && (
-                    <span className="text-[9px] text-gray-500 normal-case tracking-normal ml-1">
-                      Exclusively in Boutiques
-                    </span>
-                  )}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>
 
-          {/* Center - Logo */}
+          {/* Centre — wordmark logo */}
           <div className="flex-1 flex justify-center">
-            <a href="/" className="chanel-logo">
-              CHANEL
-            </a>
+            <Link to="/" className={`flex flex-col items-center transition-colors duration-500 ${textColor}`}>
+              <span
+                className="font-display font-normal uppercase leading-none tracking-[4px] text-[17px] md:text-[19px]"
+              >
+                Mona Matthews
+              </span>
+              <span className="text-[7px] uppercase tracking-[3px] mt-[3px] opacity-80">
+                Lagos
+              </span>
+            </Link>
           </div>
 
-          {/* Right - Icons */}
-          <div className="flex items-center justify-end gap-1 flex-1">
-            <button 
-              className="icon-button hidden sm:flex"
-              aria-label="Search"
-            >
-              <Search className="w-5 h-5" strokeWidth={1.5} />
-            </button>
-            <button 
-              className="icon-button hidden sm:flex"
-              aria-label="Account"
-            >
-              <User className="w-5 h-5" strokeWidth={1.5} />
-            </button>
-            <button 
-              className="icon-button hidden sm:flex"
-              aria-label="Wishlist"
-            >
-              <Heart className="w-5 h-5" strokeWidth={1.5} />
-            </button>
-            <button 
-              className="icon-button"
-              aria-label="Shopping bag"
-            >
-              <ShoppingBag className="w-5 h-5" strokeWidth={1.5} />
-            </button>
+          {/* Right — nav + icons */}
+          <div className="flex items-center justify-end gap-5 flex-1">
+            <nav className="hidden lg:flex items-center gap-7">
+              {navRight.map((item) => (
+                <Link key={item.label} to={item.href} className={linkClass}>
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+
+            <div className="flex items-center gap-1">
+              <a
+                href="https://instagram.com/monamatthewsng"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`icon-button hidden sm:flex ${textColor}`}
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4" strokeWidth={1.5} />
+              </a>
+              <a
+                href="https://wa.me/2348023055212"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`icon-button ${textColor}`}
+                aria-label="WhatsApp"
+              >
+                <WhatsAppIcon className="w-4 h-4" />
+              </a>
+            </div>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -126,65 +138,58 @@ export default function Header() {
               className="fixed inset-0 bg-black/50 z-50 lg:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
-            
-            {/* Menu Panel */}
+
             <motion.div
               variants={slideInFromLeft}
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="fixed top-0 left-0 bottom-0 w-[300px] bg-white z-50 lg:hidden overflow-y-auto"
+              className="fixed top-0 left-0 bottom-0 w-[280px] bg-white z-50 lg:hidden overflow-y-auto"
             >
-              <div className="flex items-center justify-between h-[60px] px-4 border-b border-gray-200">
-                <span className="chanel-logo text-lg">CHANEL</span>
+              <div className="flex items-center justify-between h-[60px] px-5 border-b border-mm-gray-200">
+                <span className="font-display text-sm uppercase tracking-[3px]">
+                  Mona Matthews
+                </span>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 hover:opacity-70 transition-opacity"
+                  className="p-2 hover:opacity-60 transition-opacity"
                   aria-label="Close menu"
                 >
                   <X className="w-5 h-5" strokeWidth={1.5} />
                 </button>
               </div>
-              
-              <nav className="py-4">
-                {navItems.map((item) => (
-                  <a
+
+              <nav className="py-6">
+                {allNavItems.map((item) => (
+                  <Link
                     key={item.label}
-                    href={item.href}
+                    to={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center justify-between px-6 py-4 text-sm uppercase tracking-wide hover:bg-gray-50 transition-colors"
+                    className="flex items-center px-6 py-4 text-[11px] uppercase tracking-mm-wide hover:bg-mm-gray-100 transition-colors"
                   >
-                    <span>{item.label}</span>
-                    {item.exclusive && (
-                      <span className="text-[10px] text-gray-500 normal-case">
-                        Exclusively in Boutiques
-                      </span>
-                    )}
-                  </a>
+                    {item.label}
+                  </Link>
                 ))}
               </nav>
-              
-              <div className="border-t border-gray-200 py-4">
+
+              <div className="border-t border-mm-gray-200 px-6 py-6 space-y-4">
                 <a
-                  href="#"
-                  className="flex items-center gap-3 px-6 py-3 text-sm hover:bg-gray-50 transition-colors"
+                  href="https://instagram.com/monamatthewsng"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-xs text-mm-gray-600 hover:text-black transition-colors"
                 >
-                  <Search className="w-4 h-4" strokeWidth={1.5} />
-                  Search
+                  <Instagram className="w-4 h-4" strokeWidth={1.5} />
+                  @monamatthewsng
                 </a>
                 <a
-                  href="#"
-                  className="flex items-center gap-3 px-6 py-3 text-sm hover:bg-gray-50 transition-colors"
+                  href="https://wa.me/2348023055212"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-xs text-mm-gray-600 hover:text-black transition-colors"
                 >
-                  <User className="w-4 h-4" strokeWidth={1.5} />
-                  Account
-                </a>
-                <a
-                  href="#"
-                  className="flex items-center gap-3 px-6 py-3 text-sm hover:bg-gray-50 transition-colors"
-                >
-                  <Heart className="w-4 h-4" strokeWidth={1.5} />
-                  Wishlist
+                  <WhatsAppIcon className="w-4 h-4" />
+                  WhatsApp
                 </a>
               </div>
             </motion.div>

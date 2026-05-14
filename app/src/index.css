@@ -6,32 +6,12 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 0%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
     --primary: 0 0% 0%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 0%;
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 40%;
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 0%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
     --ring: 0 0% 0%;
     --radius: 0rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -39,11 +19,11 @@
   * {
     @apply border-border;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply bg-white text-black font-sans antialiased;
     font-feature-settings: "kern" 1;
@@ -52,85 +32,139 @@
 }
 
 @layer components {
-  /* Chanel Logo Styling */
-  .chanel-logo {
-    @apply text-2xl font-normal tracking-chanel-logo uppercase;
-    letter-spacing: 8px;
+  /* ── Logo ── */
+  .mm-logo {
+    @apply font-display font-normal uppercase;
+    letter-spacing: 6px;
   }
-  
-  /* Navigation Link with Underline Animation */
+
+  /* ── Navigation ── */
   .nav-link {
-    @apply relative text-xs uppercase tracking-chanel-wide text-black;
+    @apply relative text-[11px] uppercase tracking-mm-wide text-black;
   }
-  
+
   .nav-link::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-full h-px bg-black;
+    @apply absolute -bottom-0.5 left-0 w-full h-px bg-black;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .nav-link:hover::after {
     transform: scaleX(1);
   }
-  
-  /* Hero Section Text Overlay */
-  .hero-overlay {
-    @apply absolute bottom-12 left-12 text-white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+  .nav-link-white {
+    @apply relative text-[11px] uppercase tracking-mm-wide text-white;
   }
-  
-  .hero-category {
-    @apply text-xs uppercase tracking-chanel-wide mb-3;
+
+  .nav-link-white::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-0 w-full h-px bg-white;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
-  .hero-title {
-    @apply text-2xl md:text-3xl font-normal tracking-wide mb-6;
+
+  .nav-link-white:hover::after {
+    transform: scaleX(1);
   }
-  
-  .hero-cta {
-    @apply inline-block text-xs uppercase tracking-chanel-wide underline underline-offset-4;
-    transition: opacity 0.25s ease-out;
-  }
-  
-  .hero-cta:hover {
-    @apply opacity-70;
-  }
-  
-  /* Footer Link Styling */
-  .footer-link {
-    @apply text-xs text-white/80 hover:text-white transition-colors duration-200;
-  }
-  
-  /* Icon Button */
-  .icon-button {
-    @apply p-2 hover:opacity-70 transition-opacity duration-200;
-  }
-  
-  /* Section Container */
+
+  /* ── Hero / Editorial Sections ── */
   .section-full {
-    @apply relative w-full h-screen overflow-hidden;
+    @apply relative w-full overflow-hidden;
+    height: 100svh;
   }
-  
-  /* Full Background Image */
+
   .bg-full {
     @apply absolute inset-0 w-full h-full object-cover;
+  }
+
+  .hero-overlay {
+    @apply absolute bottom-10 left-10 md:bottom-14 md:left-14;
+  }
+
+  .hero-category {
+    @apply text-[10px] uppercase tracking-mm-wide text-white/80 mb-2;
+  }
+
+  .hero-title {
+    @apply font-display text-2xl md:text-3xl lg:text-4xl font-normal text-white mb-6 max-w-sm;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  }
+
+  .hero-cta {
+    @apply inline-block text-[11px] uppercase tracking-mm-wide text-white underline underline-offset-4;
+    transition: opacity 0.25s ease-out;
+  }
+
+  .hero-cta:hover {
+    @apply opacity-60;
+  }
+
+  /* Top gradient so header stays readable over editorial images */
+  .hero-top-gradient {
+    @apply absolute inset-x-0 top-0 h-32 pointer-events-none;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 100%);
+  }
+
+  /* ── Icon Button ── */
+  .icon-button {
+    @apply p-2 hover:opacity-60 transition-opacity duration-200;
+  }
+
+  /* ── Footer ── */
+  .footer-link {
+    @apply text-xs text-white/70 hover:text-white transition-colors duration-200;
+  }
+
+  /* ── Catalogue grid ── */
+  .product-grid-mm {
+    @apply grid grid-cols-2 md:grid-cols-3 gap-px bg-mm-gray-200;
+  }
+
+  .product-card-mm {
+    @apply bg-white flex flex-col overflow-hidden cursor-pointer;
+  }
+
+  .product-card-mm:hover .product-card-image {
+    transform: scale(1.03);
+  }
+
+  .product-card-image {
+    @apply w-full object-cover transition-transform duration-700 ease-out;
+    aspect-ratio: 3/4;
+  }
+
+  /* ── Size Guide ── */
+  .size-table {
+    @apply w-full text-sm border-collapse;
+  }
+
+  .size-table th {
+    @apply py-3 px-4 text-left text-[11px] uppercase tracking-mm-wide font-normal border-b border-mm-gray-200;
+  }
+
+  .size-table td {
+    @apply py-3 px-4 border-b border-mm-gray-100 text-mm-gray-700;
+  }
+
+  .size-table tr:last-child td {
+    @apply border-b-0;
   }
 }
 
 @layer utilities {
-  /* Custom scrollbar */
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
+
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
-  
-  /* Text balance for better typography */
+
   .text-balance {
     text-wrap: balance;
   }

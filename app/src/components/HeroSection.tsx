@@ -2,29 +2,31 @@ import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer, ANIMATION } from '@/lib/animations';
 
 interface HeroSectionProps {
+  id?: string;
   category: string;
   title: string;
   cta: string;
   ctaHref: string;
   image: string;
   imageAlt: string;
-  id?: string;
 }
 
 export default function HeroSection({
+  id,
   category,
   title,
   cta,
   ctaHref,
   image,
   imageAlt,
-  id,
 }: HeroSectionProps) {
+  const isExternal = ctaHref.startsWith('http');
+
   return (
     <section id={id} className="section-full">
-      {/* Background Image */}
+      {/* Background image */}
       <motion.div
-        initial={{ scale: 1.05, opacity: 0 }}
+        initial={{ scale: 1.04, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
         viewport={{ once: true }}
         transition={{
@@ -33,15 +35,18 @@ export default function HeroSection({
         }}
         className="absolute inset-0"
       >
-        <img
-          src={image}
-          alt={imageAlt}
-          className="bg-full"
-          loading="lazy"
-        />
+        <img src={image} alt={imageAlt} className="bg-full" loading="lazy" />
       </motion.div>
 
-      {/* Text Overlay */}
+      {/* Top gradient — keeps header readable */}
+      <div className="hero-top-gradient" />
+
+      {/* Bottom gradient — keeps text readable */}
+      <div className="absolute inset-x-0 bottom-0 h-56 pointer-events-none"
+        style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%)' }}
+      />
+
+      {/* Text overlay */}
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -49,19 +54,32 @@ export default function HeroSection({
         viewport={{ once: true }}
         className="hero-overlay"
       >
-        <motion.p variants={fadeInUp} className="hero-category">
-          {category}
-        </motion.p>
-        <motion.h2 variants={fadeInUp} className="hero-title max-w-md">
-          {title}
-        </motion.h2>
-        <motion.a
-          variants={fadeInUp}
-          href={ctaHref}
-          className="hero-cta"
-        >
-          {cta}
-        </motion.a>
+        {category && (
+          <motion.p variants={fadeInUp} className="hero-category">
+            {category}
+          </motion.p>
+        )}
+        {title && (
+          <motion.h2 variants={fadeInUp} className="hero-title">
+            {title}
+          </motion.h2>
+        )}
+        <motion.div variants={fadeInUp}>
+          {isExternal ? (
+            <a
+              href={ctaHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-cta"
+            >
+              {cta}
+            </a>
+          ) : (
+            <a href={ctaHref} className="hero-cta">
+              {cta}
+            </a>
+          )}
+        </motion.div>
       </motion.div>
     </section>
   );
