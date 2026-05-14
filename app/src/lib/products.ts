@@ -23,7 +23,7 @@ export const collections: Collection[] = [
     title: 'Spring Summer 2026',
     cta: 'Explore',
     ctaHref: '/catalogue',
-    image: '/assets/fashion-spring-summer-2026.png',
+    image: '/assets/fashion-spring-summer-2026.jpg',
     imageAlt: 'Mona Matthews Spring Summer 2026 Collection',
   },
   {

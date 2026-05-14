@@ -11,7 +11,7 @@ export default function App() {
     <BrowserRouter>
       <div className="min-h-screen bg-white flex flex-col">
         <Header />
-        <main className="flex-1 pt-[60px]">
+        <main className="flex-1">
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/catalogue" element={<CataloguePage />} />

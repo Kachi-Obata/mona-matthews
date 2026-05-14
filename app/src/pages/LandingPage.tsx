@@ -1,12 +1,10 @@
-import { motion } from 'framer-motion';
-import { fadeIn } from '@/lib/animations';
 import HeroSection from '@/components/HeroSection';
 import { collections } from '@/lib/products';
 
 export default function LandingPage() {
   return (
-    <motion.div variants={fadeIn} initial="hidden" animate="visible">
-      {collections.map((collection) => (
+    <div>
+      {collections.map((collection, index) => (
         <HeroSection
           key={collection.id}
           id={collection.id}
@@ -16,8 +14,9 @@ export default function LandingPage() {
           ctaHref={collection.ctaHref}
           image={collection.image}
           imageAlt={collection.imageAlt}
+          priority={index === 0}
         />
       ))}
-    </motion.div>
+    </div>
   );
 }

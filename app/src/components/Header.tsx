@@ -57,10 +57,10 @@ export default function Header() {
             : 'bg-white/95 backdrop-blur-sm border-b border-mm-gray-200'
         }`}
       >
-        <div className="flex items-center justify-between h-[60px] px-4 md:px-8 lg:px-10">
+        <div className="relative flex items-center justify-between h-[60px] px-4 md:px-8 lg:px-10">
 
           {/* Left — hamburger (mobile) / nav (desktop) */}
-          <div className="flex items-center gap-6 flex-1">
+          <div className="flex items-center gap-6">
             <button
               onClick={() => setIsMobileMenuOpen(true)}
               className={`lg:hidden p-2 -ml-2 hover:opacity-60 transition-opacity ${textColor}`}
@@ -78,22 +78,22 @@ export default function Header() {
             </nav>
           </div>
 
-          {/* Centre — wordmark logo */}
-          <div className="flex-1 flex justify-center">
-            <Link to="/" className={`flex flex-col items-center transition-colors duration-500 ${textColor}`}>
-              <span
-                className="font-display font-normal uppercase leading-none tracking-[4px] text-[17px] md:text-[19px]"
-              >
-                Mona Matthews
-              </span>
-              <span className="text-[7px] uppercase tracking-[3px] mt-[3px] opacity-80">
-                Lagos
-              </span>
-            </Link>
-          </div>
+          {/* Centre — absolutely positioned so it's always the true centre
+              of the header regardless of left/right section widths */}
+          <Link
+            to="/"
+            className={`absolute left-1/2 -translate-x-1/2 flex flex-col items-center whitespace-nowrap transition-colors duration-500 ${textColor}`}
+          >
+            <span className="font-display font-normal uppercase leading-none tracking-[4px] text-[17px] md:text-[19px]">
+              Mona Matthews
+            </span>
+            <span className="text-[7px] uppercase tracking-[3px] mt-[3px] opacity-80">
+              Lagos
+            </span>
+          </Link>
 
           {/* Right — nav + icons */}
-          <div className="flex items-center justify-end gap-5 flex-1">
+          <div className="flex items-center justify-end gap-5">
             <nav className="hidden lg:flex items-center gap-7">
               {navRight.map((item) => (
                 <Link key={item.label} to={item.href} className={linkClass}>
@@ -116,7 +116,7 @@ export default function Header() {
                 href="https://wa.me/2348023055212"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`icon-button ${textColor}`}
+                className={`icon-button hidden sm:flex ${textColor}`}
                 aria-label="WhatsApp"
               >
                 <WhatsAppIcon className="w-4 h-4" />

@@ -4,7 +4,7 @@ import { products } from '@/lib/products';
 
 export default function CataloguePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-[60px]">
       {/* Page header */}
       <div className="border-b border-mm-gray-200 px-6 md:px-12 py-10 md:py-14">
         <motion.div

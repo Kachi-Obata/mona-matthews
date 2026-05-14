@@ -49,7 +49,7 @@ export default function SizeGuidePage() {
   const [gender, setGender] = useState<'women' | 'men'>('women');
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-[60px]">
       {/* Page header */}
       <div className="border-b border-mm-gray-200 px-6 md:px-20 lg:px-32 py-16 md:py-24">
         <motion.div

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { staggerContainer, fadeInUp } from '@/lib/animations';
+import { ANIMATION } from '@/lib/animations';
 
 const pillars = [
   {
@@ -51,7 +51,7 @@ const testimonials = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-[60px]">
       {/* Hero */}
       <div className="border-b border-mm-gray-200 px-6 md:px-20 lg:px-32 py-16 md:py-24">
         <motion.div
@@ -92,15 +92,19 @@ export default function AboutPage() {
         >
           Why Mona Matthews
         </motion.p>
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12"
-        >
-          {pillars.map((pillar) => (
-            <motion.div key={pillar.title} variants={fadeInUp}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
+          {pillars.map((pillar, i) => (
+            <motion.div
+              key={pillar.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: ANIMATION.duration.slower,
+                delay: i * 0.08,
+                ease: ANIMATION.easing.standard as [number, number, number, number],
+              }}
+            >
               <div className="w-6 h-px bg-mm-gold mb-5" />
               <h3 className="font-display text-lg font-normal mb-3">
                 {pillar.title}
@@ -110,7 +114,7 @@ export default function AboutPage() {
               </p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Testimonials */}
@@ -124,15 +128,20 @@ export default function AboutPage() {
         >
           What Our Clients Say
         </motion.p>
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-10"
-        >
-          {testimonials.map((t) => (
-            <motion.div key={t.name} variants={fadeInUp} className="flex flex-col">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={t.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: ANIMATION.duration.slower,
+                delay: i * 0.1,
+                ease: ANIMATION.easing.standard as [number, number, number, number],
+              }}
+              className="flex flex-col"
+            >
               <p className="font-display text-base italic font-normal text-mm-gray-700 leading-relaxed mb-6 flex-1">
                 &ldquo;{t.quote}&rdquo;
               </p>
@@ -142,7 +151,7 @@ export default function AboutPage() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
   );
