@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "app",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd /Users/kachiobata/mona-matthews/app && npm run dev -- --port $PORT"],
+      "port": 5174,
+      "autoPort": true
+    }
+  ]
+}

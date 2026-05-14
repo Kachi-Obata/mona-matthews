@@ -172,6 +172,16 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Large wordmark */}
+      <div className="overflow-hidden px-4 pb-4 pt-0">
+        <p
+          className="font-display font-normal uppercase text-white leading-[0.85] whitespace-nowrap select-none"
+          style={{ fontSize: 'clamp(3.5rem, 14vw, 16rem)', letterSpacing: '-0.02em' }}
+        >
+          Mona Matthews
+        </p>
+      </div>
     </footer>
   );
 }
