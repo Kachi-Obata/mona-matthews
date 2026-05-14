@@ -56,12 +56,13 @@ export default function HeroSection({
         style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%)' }}
       />
 
-      {/* Text overlay — animates in when section enters view */}
+      {/* Text overlay — on first section animate on mount; on all others animate on scroll */}
       <motion.div
         variants={staggerContainer}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
+        {...(priority
+          ? { animate: 'visible' }
+          : { whileInView: 'visible', viewport: { once: true } })}
         className="hero-overlay"
       >
         {category && (
