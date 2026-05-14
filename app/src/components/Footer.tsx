@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Instagram } from 'lucide-react';
@@ -13,6 +13,21 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 export default function Footer() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const wordmarkRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const fit = () => {
+      const el = wordmarkRef.current;
+      if (!el) return;
+      el.style.fontSize = '200px';
+      const scale = el.parentElement!.clientWidth / el.scrollWidth;
+      el.style.fontSize = `${200 * scale}px`;
+    };
+    fit();
+    document.fonts.ready.then(fit);
+    window.addEventListener('resize', fit);
+    return () => window.removeEventListener('resize', fit);
+  }, []);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -174,10 +189,11 @@ export default function Footer() {
       </div>
 
       {/* Large wordmark */}
-      <div className="overflow-hidden px-4 pb-4 pt-0">
+      <div className="pb-3 pt-0">
         <p
-          className="font-display font-normal uppercase text-white leading-[0.85] whitespace-nowrap select-none"
-          style={{ fontSize: 'clamp(3.5rem, 14vw, 16rem)', letterSpacing: '-0.02em' }}
+          ref={wordmarkRef}
+          className="font-display font-normal uppercase text-white leading-[0.85] whitespace-nowrap select-none text-center w-full"
+          style={{ letterSpacing: '-0.02em' }}
         >
           Mona Matthews
         </p>
