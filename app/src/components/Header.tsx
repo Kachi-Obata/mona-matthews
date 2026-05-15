@@ -10,17 +10,12 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const navLeft = [
-  { label: 'Collection', href: '/' },
-  { label: 'Catalogue', href: '/catalogue' },
-];
-
-const navRight = [
+const allNavItems = [
+  { label: 'Collections', href: '/' },
+  { label: 'Shop', href: '/catalogue' },
   { label: 'About', href: '/about' },
   { label: 'Size Guide', href: '/size-guide' },
 ];
-
-const allNavItems = [...navLeft, ...navRight];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,7 +41,6 @@ export default function Header() {
   }, [isMobileMenuOpen]);
 
   const textColor = transparent ? 'text-white' : 'text-black';
-  const linkClass = transparent ? 'nav-link-white' : 'nav-link';
 
   return (
     <>
@@ -59,23 +53,15 @@ export default function Header() {
       >
         <div className="relative flex items-center justify-between h-[60px] px-4 md:px-8 lg:px-10">
 
-          {/* Left — hamburger (mobile) / nav (desktop) */}
-          <div className="flex items-center gap-6">
+          {/* Left — hamburger always visible */}
+          <div className="flex items-center">
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className={`lg:hidden p-2 -ml-2 hover:opacity-60 transition-opacity ${textColor}`}
+              className={`p-2 -ml-2 hover:opacity-60 transition-opacity ${textColor}`}
               aria-label="Open menu"
             >
               <Menu className="w-5 h-5" strokeWidth={1.5} />
             </button>
-
-            <nav className="hidden lg:flex items-center gap-7">
-              {navLeft.map((item) => (
-                <Link key={item.label} to={item.href} className={linkClass}>
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
           </div>
 
           {/* Centre — absolutely positioned so it's always the true centre
@@ -92,36 +78,26 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Right — nav + icons */}
-          <div className="flex items-center justify-end gap-5">
-            <nav className="hidden lg:flex items-center gap-7">
-              {navRight.map((item) => (
-                <Link key={item.label} to={item.href} className={linkClass}>
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-
-            <div className="flex items-center gap-1">
-              <a
-                href="https://instagram.com/monamatthewsng"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`icon-button hidden sm:flex ${textColor}`}
-                aria-label="Instagram"
-              >
-                <Instagram className="w-4 h-4" strokeWidth={1.5} />
-              </a>
-              <a
-                href="https://wa.me/2348023055212"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`icon-button hidden sm:flex ${textColor}`}
-                aria-label="WhatsApp"
-              >
-                <WhatsAppIcon className="w-4 h-4" />
-              </a>
-            </div>
+          {/* Right — social icons */}
+          <div className="flex items-center gap-1">
+            <a
+              href="https://instagram.com/monamatthewsng"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`icon-button ${textColor}`}
+              aria-label="Instagram"
+            >
+              <Instagram className="w-4 h-4" strokeWidth={1.5} />
+            </a>
+            <a
+              href="https://wa.me/2348023055212"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`icon-button ${textColor}`}
+              aria-label="WhatsApp"
+            >
+              <WhatsAppIcon className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </header>
@@ -135,7 +111,7 @@ export default function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: ANIMATION.duration.normal }}
-              className="fixed inset-0 bg-black/50 z-50 lg:hidden"
+              className="fixed inset-0 bg-black/50 z-50"
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
@@ -144,7 +120,7 @@ export default function Header() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="fixed top-0 left-0 bottom-0 w-[280px] bg-white z-50 lg:hidden overflow-y-auto"
+              className="fixed top-0 left-0 bottom-0 w-[280px] bg-white z-50 overflow-y-auto"
             >
               <div className="flex items-center justify-between h-[60px] px-5 border-b border-mm-gray-200">
                 <span className="font-display text-sm uppercase tracking-[3px]">
