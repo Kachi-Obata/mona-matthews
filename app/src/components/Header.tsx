@@ -66,16 +66,12 @@ export default function Header() {
 
           {/* Centre — absolutely positioned so it's always the true centre
               of the header regardless of left/right section widths */}
-          <Link
-            to="/"
-            className={`absolute left-1/2 -translate-x-1/2 flex flex-col items-center whitespace-nowrap transition-colors duration-500 ${textColor}`}
-          >
-            <span className="font-display font-normal uppercase leading-none tracking-[4px] text-[17px] md:text-[19px]">
-              Mona Matthews
-            </span>
-            <span className="text-[7px] uppercase tracking-[3px] mt-[3px] opacity-80">
-              Lagos
-            </span>
+          <Link to="/" className="absolute left-1/2 -translate-x-1/2">
+            <img
+              src="/images/MonaMatthews_New_Logo_Brown.png"
+              alt="Mona Matthews"
+              className={`h-8 md:h-9 w-auto transition-all duration-500 ${transparent ? 'brightness-0 invert' : ''}`}
+            />
           </Link>
 
           {/* Right — social icons */}

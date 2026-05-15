@@ -19,12 +19,12 @@ export interface Product {
 export const collections: Collection[] = [
   {
     id: 'new-collection',
-    label: 'New Collection',
-    title: 'Spring Summer 2026',
+    label: 'New Arrivals',
+    title: 'The New Edit',
     cta: 'Explore',
     ctaHref: '/catalogue',
     image: '/assets/fashion-spring-summer-2026.jpg',
-    imageAlt: 'Mona Matthews Spring Summer 2026 Collection',
+    imageAlt: 'Mona Matthews New Arrivals',
   },
   {
     id: 'artisan-range',
